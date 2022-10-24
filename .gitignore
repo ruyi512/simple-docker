@@ -10,7 +10,7 @@ jenkins/home
 mongo/config
 mongo/db
 mysql/data
-nginx/conf
+nginx/conf/*.conf
 nginx/logs
 nginx/www
 gitlab/config
