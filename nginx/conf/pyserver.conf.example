@@ -17,7 +17,7 @@ server {
 
 # 基于consul dns的负载均衡方式
 server {
-    listen 8081;
+    listen 8088;
     server_name _;
 
     resolver 127.0.0.1:8600;
