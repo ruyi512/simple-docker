@@ -122,7 +122,7 @@ services:
       - 8600:8600/udp
     command: "agent -server -bootstrap -ui -data-dir=/opt/consul -node=${HOST_NAME} -client=0.0.0.0 -advertise=${HOST_IP}"
     volumes:
-      - /consul/data:/opt/consul
+      - ./consul/data:/opt/consul
     privileged: true
 
   consul-client:
@@ -142,7 +142,7 @@ services:
       - 8600:8600/udp
     command: "agent -data-dir=/opt/consul -node=${HOST_NAME} -client=0.0.0.0 -join=${CONSUL_SERVER} -advertise=${HOST_IP}"
     volumes:
-      - /consul/data:/opt/consul
+      - ./consul/data:/opt/consul
     privileged: true
 
   pyserver:
