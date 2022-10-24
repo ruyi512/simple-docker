@@ -27,8 +27,7 @@
 ### 服务器节点扩容
 方式一：基于upstream，可以通过upsync、consul-template等组件来实现upstream的动态变更
 
-```json
-# 基于upstream的负载均衡方式
+```
 upstream pyserver{
     server 192.168.1.130:30003;
     server 192.168.1.124:30003;
@@ -48,7 +47,7 @@ server {
 
 方式二：基于consul提供的DNS服务，来实现集群节点的弹性扩容
 
-```json
+```
 server {
     listen 8088;
     server_name _;
