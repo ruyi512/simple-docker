@@ -105,7 +105,7 @@ services:
     network_mode: host
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
-    command: " -ip ${HOST_IP} consul://localhost:8500"
+    command: " -ip ${HOST_IP} consul://${HOST_IP}:8500"
     privileged: true
 
   consul-server:
