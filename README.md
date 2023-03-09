@@ -99,7 +99,7 @@ server {
 ![avatar](images/sw_4.png)
 
 #### Skywalking API性能跟踪
-    追踪信息，可以追踪到http、mysql、redis等请求的延迟，如：/get请求的处理时间处理的时间(273ms)，以及其中调用外部接口使用的时间(257ms)
+    追踪信息，可以追踪到代码中的http、mysql、redis等请求的跨度，如：/get请求的持续时间为187ms；其中mysql请求持续时间8ms、调用外部http接口持续时间175ms
 ![avatar](images/sw_1.png)
 
 #### Skywalking 请求跨度信息
