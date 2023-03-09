@@ -1,1 +1,2 @@
 Flask
+apache-skywalking==1.0.0

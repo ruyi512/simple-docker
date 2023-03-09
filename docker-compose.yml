@@ -79,9 +79,9 @@ services:
       - ./mongo/config:/data/configdb
     privileged: true
 
-  es7:
+  elasticsearch7:
     image: elasticsearch:7.11.2
-    container_name: es7
+    container_name: elasticsearch7
     ports:
       - 9200:9200
       - 9300:9300
@@ -102,16 +102,16 @@ services:
     image: apache/skywalking-oap-server:8.1.0-es7
     container_name: skywalking-oap
     depends_on:
-      - es7
+      - elasticsearch7
     links:
-      - es7
+      - elasticsearch7
     restart: always
     ports:
       - 11800:11800
       - 12800:12800
     environment:
       SW_STORAGE: elasticsearch7 # 指定ES版本
-      SW_STORAGE_ES_CLUSTER_NODES: es7:9200
+      SW_STORAGE_ES_CLUSTER_NODES: elasticsearch7:9200
       TZ: Asia/Shanghai
 
   skywalking-ui:
