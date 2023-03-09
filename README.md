@@ -18,7 +18,9 @@
     修改微服务nginx配置：mv ./nginx/conf/pyserver.conf.example ./nginx/conf/pyserver.conf
 
     主机node1执行： docker-compose up -d consul-server pyserver registrator nginx skywalking-ui
+
     主机node2执行： docker-compose up -d consul-client pyserver registrator 
+
     主机node2执行： docker-compose up -d consul-client pyserver registrator
 
 |主机名	| IP |	服务|
