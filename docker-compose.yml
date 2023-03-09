@@ -98,6 +98,36 @@ services:
       - ./es/data:/usr/share/elasticsearch/data
     privileged: true
 
+  skywalking-oap:
+    image: apache/skywalking-oap-server:8.1.0-es7
+    container_name: skywalking-oap
+    depends_on:
+      - es7
+    links:
+      - es7
+    restart: always
+    ports:
+      - 11800:11800
+      - 12800:12800
+    environment:
+      SW_STORAGE: elasticsearch7 # 指定ES版本
+      SW_STORAGE_ES_CLUSTER_NODES: es7:9200
+      TZ: Asia/Shanghai
+
+  skywalking-ui:
+    image: apache/skywalking-ui:8.1.0
+    container_name: skywalking-ui
+    depends_on:
+      - skywalking-oap
+    links:
+      - skywalking-oap
+    restart: always
+    ports:
+      - 18080:8080
+    environment:
+      SW_OAP_ADDRESS: skywalking-oap:12800
+      TZ: Asia/Shanghai
+
   registrator:
     image: gliderlabs/registrator:latest
     restart: always
