@@ -4,11 +4,19 @@ import os
 from skywalking import agent, config
 import requests
 
+ip = os.environ.get('HOST_IP', '127.0.0.1') # 当前主机IP
+port = int(sys.argv[1])
+name = 'web1'
+if port == 30003:
+    name = 'web2'
+
 sw_oap = os.environ.get('SW_OAP_ADDRESS', '192.168.1.130:11800')
 config.init(agent_collector_backend_services=sw_oap, agent_protocol='grpc',
-            agent_name='great-app-consumer-grpc',
-            agent_instance_name='py_demo',
-            agent_experimental_fork_support=True, agent_logging_level='DEBUG', agent_log_reporter_active=True,
+            agent_name='service_{name}'.format(name=name),
+            agent_instance_name='server_{ip}'.format(ip=ip),
+            agent_experimental_fork_support=True,
+            agent_logging_level='DEBUG',
+            agent_log_reporter_active=True,
             agent_meter_reporter_active=True,
             agent_profile_active=True)
 
@@ -16,16 +24,9 @@ agent.start()
 
 app = Flask(__name__)
 
-
 @app.route("/hello")
 def hello():
-    s = int(sys.argv[1])
-    name = 'web1'
-    if s == 30003:
-        name = 'web2'
-    ip = os.environ.get('HOST_IP', '')
-
-    return 'hello ' + ip + ' service_' + name
+    return 'hello ' + ip + ' service_' + name + ';' + sw_oap
 
 @app.route("/")
 def healthy():
@@ -33,9 +34,8 @@ def healthy():
 
 @app.route("/get")
 def get():
-    response = requests.get('https://www.87cq.com/api/game/newest');
+    response = requests.get('https://www.87cq.com/api/game/newest')
     return response.content
 
 if __name__ == '__main__':
-    port = sys.argv[1]
     app.run(host='0.0.0.0', port=port)

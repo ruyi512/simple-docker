@@ -8,6 +8,7 @@
 - nginx：网关、反向代理
 - consul：服务发现和注册，并提供DNS服务
 - registrator：容器运行监控，收集容器运行信息，实现服务的自动注册
+- skywalking：链路追踪，用来对服务的运行状况进行分析
 
 ### 环境部署
     准备两台Linux主机，安装docker和docker-compose
