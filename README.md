@@ -100,11 +100,13 @@ server {
     追踪信息，可以追踪到http、mysql、redis等请求的延迟，如：/get请求的处理时间处理的时间(273ms)，以及其中调用外部接口使用的时间(257ms)
 ![avatar](images/sw_1.png)
 
-#### Skywalking API跨度信息
-    
+#### Skywalking 请求跨度信息
+    HTTP请求的信息
 ![avatar](images/sw_2.png)
+    Mysql查询请求的信息
+![avatar](images/sw_5.png)
 
-#### Skywalking Agent使用示例
+#### Skywalking Agent 使用示例
 
 ```python
 from flask import Flask

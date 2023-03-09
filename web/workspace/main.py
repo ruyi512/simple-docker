@@ -3,6 +3,7 @@ import sys
 import os
 from skywalking import agent, config
 import requests
+from mysql_demo import test_mysql
 
 ip = os.environ.get('HOST_IP', '127.0.0.1') # 当前主机IP
 port = int(sys.argv[1])
@@ -34,6 +35,7 @@ def healthy():
 
 @app.route("/get")
 def get():
+    test_mysql()
     response = requests.get('https://www.87cq.com/api/game/newest')
     return response.content
 
