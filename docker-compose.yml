@@ -110,7 +110,7 @@ services:
       - 11800:11800
       - 12800:12800
     environment:
-      SW_STORAGE: elasticsearch7 # 指定ES版本
+      SW_STORAGE: elasticsearch # 指定ES版本
       SW_STORAGE_ES_CLUSTER_NODES: elasticsearch7:9200
       TZ: Asia/Shanghai
 
