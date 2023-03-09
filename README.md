@@ -103,6 +103,7 @@ server {
 #### Skywalking 请求跨度信息
     HTTP请求的信息
 ![avatar](images/sw_2.png)
+
     Mysql查询请求的信息
 ![avatar](images/sw_5.png)
 
