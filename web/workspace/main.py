@@ -2,8 +2,10 @@ from flask import Flask
 import sys
 import os
 from skywalking import agent, config
+import requests
 
-config.init(agent_collector_backend_services='192.168.1.130:11800', agent_protocol='grpc',
+sw_oap = os.environ.get('SW_OAP_ADDRESS', '192.168.1.130:11800')
+config.init(agent_collector_backend_services=sw_oap, agent_protocol='grpc',
             agent_name='great-app-consumer-grpc',
             agent_instance_name='py_demo',
             agent_experimental_fork_support=True, agent_logging_level='DEBUG', agent_log_reporter_active=True,
@@ -28,6 +30,11 @@ def hello():
 @app.route("/")
 def healthy():
     return 'ok'
+
+@app.route("/get")
+def get():
+    response = requests.get('https://www.87cq.com/api/game/newest');
+    return response.content
 
 if __name__ == '__main__':
     port = sys.argv[1]

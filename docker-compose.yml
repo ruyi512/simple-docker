@@ -193,6 +193,7 @@ services:
       - SERVICE_30003_CHECK_INTERVAL=5s
       - SERVICE_30003_CHECK_TIMEOUT=1s
       - HOST_IP=${HOST_IP}
+      - SW_OAP_ADDRESS=${SW_OAP_ADDRESS}
     restart: always
     privileged: true
     ports:
