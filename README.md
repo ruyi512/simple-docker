@@ -22,8 +22,19 @@
 
 |主机名	| IP |	服务|
 |  ----  | ----  |----  |
-|node1   |192.168.1.130	|consul(server), pyserver(两个微服务:web1,web2), registrator|
-|node2   |192.168.1.124 |consul(client), pyserver(两个微服务:web1,web2), registrator, nginx|
+|node1   |192.168.1.130	|consul(server, ui), pyserver(两个微服务:web1,web2), registrator, nginx, skywalking(oap, ui)|
+|node2   |192.168.1.54 |consul(client), pyserver(两个微服务:web1,web2), registrator|
+|node3   |192.168.1.55 |consul(client), pyserver(两个微服务:web1,web2), registrator|
+
+#### consul节点
+![avatar](images/consul_1.png)
+
+#### consul上的Service
+![avatar](images/consul_2.png)
+
+#### consul上Web服务对应的3个实例
+![avatar](images/consul_3.png)
+
 
 ### 服务器节点扩容
 方式一：基于upstream，可以通过upsync、consul-template等组件来实现upstream的动态变更
@@ -31,7 +42,8 @@
 ```
 upstream pyserver{
     server 192.168.1.130:30003;
-    server 192.168.1.124:30003;
+    server 192.168.1.54:30003;
+    server 192.168.1.55:30003;
 }
 
 server {
@@ -62,3 +74,17 @@ server {
     error_log /var/log/nginx/pyserver2.log;
 }
 ```
+
+### 服务性能监视
+
+#### Skywalking仪表盘
+![avatar](images/sw_3.png)
+
+#### 服务的拓扑图
+![avatar](images/sw_4.png)
+
+#### API性能跟踪
+![avatar](images/sw_1.png)
+
+#### API跨度信息
+![avatar](images/sw_2.png)
