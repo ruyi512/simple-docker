@@ -20,3 +20,4 @@ es/data
 web/logs
 web/logs2
 consul/data
+rabbitmq/data

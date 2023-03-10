@@ -205,3 +205,17 @@ services:
       - ./web/supervisor:/etc/supervisor/conf.d
       - ./web/workspace:/app
       - ./web/logs:/var/log/supervisor/
+
+  rabbitmq:
+    image: rabbitmq:3.8.11-management
+    container_name: rabbitmq
+    restart: always
+    hostname: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - ./rabbitmq/data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=root
