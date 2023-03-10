@@ -1,16 +1,16 @@
-### 项目简介
+## 项目简介
     一个简单的docker-compose使用demo，可以快速部署一些常用的技术组件
 
-### 目标
-    快速部署一个微服务环境，基于consul和registrator实现服务的自动发现和注册，以及服务器节点的弹性扩容
+## 目标
+    快速部署一个微服务环境，基于consul和registrator实现服务的自动发现和注册，以及服务器节点的弹性扩容，并使用skywalking对服务进行监控
 
-### 组件
+## 组件
 - nginx：网关、反向代理
 - consul：服务发现和注册，并提供DNS服务
 - registrator：容器运行监控，收集容器运行信息，实现服务的自动注册
 - skywalking：链路追踪，用来对服务的运行状况进行分析
 
-### 环境部署
+## 环境部署
     准备两台Linux主机，安装docker和docker-compose
 
     设置docker-compose环境变量: mv .env.example .env，修改.env
@@ -46,7 +46,7 @@
 ![avatar](images/consul_3.png)
 
 
-### 服务器节点扩容
+## 服务器节点扩容
 方式一：基于upstream
 
 ```
@@ -88,7 +88,7 @@ server {
 }
 ```
 
-### 服务性能监视
+## 服务性能监控
 
 #### Skywalking仪表盘
     仪表盘可以显示每分钟服务的请求数、慢响应服务、全局请求延迟等
