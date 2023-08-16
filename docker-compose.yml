@@ -208,8 +208,7 @@ services:
       - ./web/logs:/var/log/supervisor/
 
   rabbitmq:
-    build:
-      context: ./rabbitmq
+    image: rabbitmq:3.8.11-management
     container_name: rabbitmq
     restart: always
     hostname: rabbitmq
