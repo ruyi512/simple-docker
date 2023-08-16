@@ -55,7 +55,8 @@ services:
       - "${MYSQL_PORT}:3306"
 
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: ./jenkins
     env_file: .env
     environment:
       TZ: Asia/Shanghai
