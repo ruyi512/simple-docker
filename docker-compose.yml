@@ -233,3 +233,4 @@ services:
     volumes:
       - ./openresty/nginx/conf:/etc/nginx/conf.d
       - /home/wwwroot:/home/wwwroot
+      - /home/wwwlogs/nginx:/home/wwwlogs/nginx
