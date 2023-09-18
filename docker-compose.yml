@@ -230,4 +230,4 @@ services:
     ports:
       - 8011:8011
     volumes:
-      - ./openresty/conf:/usr/local/openresty/nginx/conf
+      - ./openresty/nginx/conf:/etc/nginx/conf.d

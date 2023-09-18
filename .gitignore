@@ -7,6 +7,7 @@ composer.lock
 .svn
 .vscode
 jenkins/home
+jenkins/sshd_config
 mongo/config
 mongo/db
 mysql/data
@@ -19,6 +20,7 @@ gitlab/logs
 es/data
 web/logs
 web/logs2
+web/workspace/__pycache__
 consul/data
 rabbitmq/data
 openresty/nginx
