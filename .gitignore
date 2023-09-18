@@ -21,3 +21,4 @@ web/logs
 web/logs2
 consul/data
 rabbitmq/data
+openresty/nginx

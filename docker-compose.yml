@@ -221,3 +221,13 @@ services:
       - RABBITMQ_DEFAULT_USER=root
       - RABBITMQ_DEFAULT_PASS=root
     privileged: true
+
+  openresty:
+    image: openresty/openresty
+    container_name: openresty
+    restart: always
+    privileged: true
+    ports:
+      - 8011:8011
+    volumes:
+      - ./openresty/conf:/usr/local/openresty/nginx/conf
