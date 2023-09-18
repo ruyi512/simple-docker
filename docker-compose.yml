@@ -228,7 +228,8 @@ services:
     restart: always
     privileged: true
     ports:
-      - 8011:8011
+      - 8088:8088
+      - 8092:8092
     volumes:
       - ./openresty/nginx/conf:/etc/nginx/conf.d
       - /home/wwwroot:/home/wwwroot
