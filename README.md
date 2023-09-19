@@ -35,7 +35,7 @@
 
 #### Consul节点
     当2个client节点关机时，节点自动移除
-![avatar](images/consul_1.png)
+![avatar](images/consul_5.png)
 
 #### Consul上的Service
     Registrator会把服务器上的所有docker容器信息收集，自动注册为Consul的服务
