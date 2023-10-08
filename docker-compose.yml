@@ -234,3 +234,4 @@ services:
       - ./openresty/nginx/conf:/etc/nginx/conf.d
       - /home/wwwroot:/home/wwwroot
       - /home/wwwlogs/nginx:/home/wwwlogs/nginx
+      - ./openresty/nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
