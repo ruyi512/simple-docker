@@ -223,7 +223,8 @@ services:
     privileged: true
 
   openresty:
-    image: openresty/openresty
+    build:
+      context: ./openresty
     container_name: openresty
     restart: always
     privileged: true
