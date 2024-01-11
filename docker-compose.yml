@@ -242,11 +242,11 @@ services:
     restart: always
     container_name: sonarqube
     ports:
-      - 9000:9000
+      - 19000:9000
     environment:
       - SONARQUBE_JDBC_USERNAME=root
       - SONARQUBE_JDBC_PASSWORD=QyYLa7P6FAyzih3P
-      - SONARQUBE_JDBC_URL=jdbc:mysql://192.168.1.130:3306/sonar
+      - SONARQUBE_JDBC_URL="jdbc:mysql://192.168.1.130:3306/sonar?seUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false"
     volumes:
       - ./sonarqube/conf:/opt/sonarqube/conf
       - ./sonarqube/data:/opt/sonarqube/data
