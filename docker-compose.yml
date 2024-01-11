@@ -236,3 +236,18 @@ services:
       - /home/wwwroot:/home/wwwroot
       - /home/wwwlogs/nginx:/home/wwwlogs/nginx
       - ./openresty/nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+
+  sonarqube:
+    image: sonarqube:7.8-community
+    restart: always
+    container_name: sonarqube
+    ports:
+      - 9000:9000
+    environment:
+      - SONARQUBE_JDBC_USERNAME=root
+      - SONARQUBE_JDBC_PASSWORD=QyYLa7P6FAyzih3P
+      - SONARQUBE_JDBC_URL=jdbc:mysql://192.168.1.130:3306/sonar
+    volumes:
+      - ./sonarqube/conf:/opt/sonarqube/conf
+      - ./sonarqube/data:/opt/sonarqube/data
+      - ./sonarqube/extensions:/opt/sonarqube/extensions
