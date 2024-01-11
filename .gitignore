@@ -25,4 +25,4 @@ consul/data
 rabbitmq/data
 openresty/nginx/conf/*.conf
 sonarqube/*
-!sonarqube/plugins
+!sonarqube/extensions
