@@ -24,4 +24,5 @@ web/workspace/__pycache__
 consul/data
 rabbitmq/data
 openresty/nginx/conf/*.conf
-sonarqube
+sonarqube/*
+!sonarqube/plugins
