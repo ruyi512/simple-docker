@@ -251,3 +251,4 @@ services:
       - ./sonarqube/conf:/opt/sonarqube/conf
       - ./sonarqube/data:/opt/sonarqube/data
       - ./sonarqube/extensions:/opt/sonarqube/extensions
+      - ./sonarqube/logs:/opt/sonarqube/logs
